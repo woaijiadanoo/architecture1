@@ -75,7 +75,7 @@ public class NoOrderWithIndex {
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+
 		NoOrderWithIndex nowi = new NoOrderWithIndex(6);
 		nowi.insertArr(5);
 		nowi.insertArr(3);

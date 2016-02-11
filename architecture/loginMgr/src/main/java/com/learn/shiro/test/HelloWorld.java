@@ -9,7 +9,7 @@ import org.apache.shiro.util.Factory;
 public class HelloWorld {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
 		Factory<org.apache.shiro.mgt.SecurityManager> factory = new IniSecurityManagerFactory("classpath:myShiroTest.ini");
 		
 		org.apache.shiro.mgt.SecurityManager securityManager = factory.getInstance();

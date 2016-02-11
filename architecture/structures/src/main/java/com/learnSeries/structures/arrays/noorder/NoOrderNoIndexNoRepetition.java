@@ -105,7 +105,7 @@ public class NoOrderNoIndexNoRepetition {
 	}
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+
 		NoOrderNoIndexNoRepetition noOrdernr = new NoOrderNoIndexNoRepetition(6);
 		noOrdernr.insertArr(5);
 		noOrdernr.insertArr(3);
