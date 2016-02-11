@@ -14,21 +14,24 @@
 	<name>architectureWeb Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
-			<scope>test</scope>
-		</dependency>
+		<!-- SpringMVC + Spring + Mybatis在本框架中的应用举例 -->
 		<dependency>
 			<groupId>com.framework.architecture</groupId>
 			<artifactId>customerMgr</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<type>war</type>
 		</dependency>
+		<!-- 框架中的登录管理，主要应用的是 Shiro -->
 		<dependency>
 			<groupId>com.framework.architecture</groupId>
 			<artifactId>loginMgr</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>war</type>
+		</dependency>
+		<!-- 软件设计联系-功能设计 -->
+		<dependency>
+			<groupId>com.framework.architecture</groupId>
+			<artifactId>functionDesign</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<type>war</type>
 		</dependency>
@@ -49,6 +52,10 @@
 						<overlay>
 							<groupId>com.framework.architecture</groupId>
 							<artifactId>loginMgr</artifactId>
+						</overlay>
+						<overlay>
+							<groupId>com.framework.architecture</groupId>
+							<artifactId>functionDesign</artifactId>
 						</overlay>
 					</overlays>
 				</configuration>

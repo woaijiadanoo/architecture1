@@ -15,13 +15,6 @@
 	</properties>
 
 	<dependencies>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
-			<scope>test</scope>
-		</dependency>
-
 		<!-- web工程的依赖包, jsp-api和servlet-api -->
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
@@ -229,10 +222,17 @@
 
 	</dependencies>
 	<modules>
+		<!-- 总的web工程，不包含具体实现 -->
 		<module>architectureWeb</module>
+		<!-- 工具模块 -->
 		<module>common</module>
+		<!-- SpringMVC + Spring + Mybatis在本框架中的应用举例 -->
 		<module>customerMgr</module>
+		<!-- 框架中的登录管理，主要应用的是 Shiro -->
 		<module>loginMgr</module>
-    <module>structures</module>
+		<!-- 算法联系 -->
+    	<module>structures</module>
+    	<!-- 软件设计练习 -功能设计 -->
+    	<module>functionDesign</module>
   </modules>
 </project>
