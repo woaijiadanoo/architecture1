@@ -14,3 +14,4 @@
 
 环境要求：
 	JDK 1.7以上
+        Egit:在Eclipse里集成的GIT插件，下载地址：http://download.eclipse.org/egit/updates 【2016-02-15 jiang-zh】
