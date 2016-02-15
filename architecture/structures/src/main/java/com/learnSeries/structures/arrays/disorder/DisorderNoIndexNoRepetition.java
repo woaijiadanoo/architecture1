@@ -1,12 +1,12 @@
-package com.learnSeries.structures.arrays.noorder;
+package com.learnSeries.structures.arrays.disorder;
 
-public class NoOrderNoIndexNoRepetition {
+public class DisorderNoIndexNoRepetition {
 
 	private int length = 0;
 	private int currentIndex = 0;
 	private int[] arrs = null;
 	
-	public NoOrderNoIndexNoRepetition(int length){
+	public DisorderNoIndexNoRepetition(int length){
 		arrs = new int[length];
 		this.length = length;
 	}
@@ -106,7 +106,7 @@ public class NoOrderNoIndexNoRepetition {
 	
 	public static void main(String[] args) {
 
-		NoOrderNoIndexNoRepetition noOrdernr = new NoOrderNoIndexNoRepetition(6);
+		DisorderNoIndexNoRepetition noOrdernr = new DisorderNoIndexNoRepetition(6);
 		noOrdernr.insertArr(5);
 		noOrdernr.insertArr(3);
 		noOrdernr.insertArr(1);

@@ -1,4 +1,4 @@
-package com.learnSeries.structures.arrays.noorder;
+package com.learnSeries.structures.arrays.disorder;
 
 
 /**
@@ -7,13 +7,13 @@ package com.learnSeries.structures.arrays.noorder;
  * @author jiang-zh
  *
  */
-public class NoOrderWithIndex {
+public class DisorderWithIndex {
 	
 	private int length = 0;
 	private int currentIndex = 0;
 	private int[] arrs = null;
 
-	public NoOrderWithIndex(int length){
+	public DisorderWithIndex(int length){
 		arrs = new int[length];
 		this.length = length;
 	}
@@ -76,7 +76,7 @@ public class NoOrderWithIndex {
 
 	public static void main(String[] args) {
 
-		NoOrderWithIndex nowi = new NoOrderWithIndex(6);
+		DisorderWithIndex nowi = new DisorderWithIndex(6);
 		nowi.insertArr(5);
 		nowi.insertArr(3);
 		nowi.insertArr(1);
