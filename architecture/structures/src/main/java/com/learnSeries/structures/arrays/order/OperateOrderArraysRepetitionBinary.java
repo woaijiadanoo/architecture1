@@ -1,18 +1,21 @@
 package com.learnSeries.structures.arrays.order;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
- * 演示二分法操作有序数组的查询
+ * 演示二分法操作有序数组的查询[可重复]
  * 
  * @author jiang-zh
  *
  */
-public class OperateOrderArrays {
+public class OperateOrderArraysRepetitionBinary {
 
 	private int[] arrs;
 	private int currentIndex;
 //	private int length;
 
-	public OperateOrderArrays(int length) {
+	public OperateOrderArraysRepetitionBinary(int length) {
 		arrs = new int[length];
 //		this.length = length;
 	}
@@ -50,11 +53,14 @@ public class OperateOrderArrays {
 
 		int dataIndex = getIndexByData(data);
 
-		// 删除任意一条数据，后面的数据都要依次向前挪动一位
-		for (int i = dataIndex; i < currentIndex; i++) {
-			arrs[i] = arrs[i + 1];
+		while(dataIndex>0){
+			// 删除任意一条数据，后面的数据都要依次向前挪动一位
+			for (int i = dataIndex; i < currentIndex; i++) {
+				arrs[i] = arrs[i + 1];
+			}
+			currentIndex--;
+			dataIndex = getIndexByData(data);
 		}
-		currentIndex--;
 
 	}
 
@@ -84,13 +90,30 @@ public class OperateOrderArrays {
 	 */
 	public int queryByData(int data) {
 
-		for (int i = 0; i < currentIndex; i++) {
-			if (arrs[i] == data) {
-				return arrs[i];
+		int minIndex = 0;
+		int maxIndex = currentIndex-1;
+		int middleIndex =-1;
+		
+		// 首先比较数组中间位置与传入数据
+		// 如果大于则去数组左侧寻找，如果小于，则去右侧寻找
+		while(true){
+			middleIndex =(maxIndex+minIndex)/2;
+			
+			if(minIndex>maxIndex){
+				return -1;
+			}else if(arrs[middleIndex] == data){
+				return arrs[middleIndex];
+			}else{
+				if(arrs[middleIndex]>data){
+					maxIndex = middleIndex-1;
+				}else if(arrs[middleIndex]<data){
+					minIndex = middleIndex+1;
+				}
+				
 			}
+			
 		}
 
-		return -1;
 	}
 
 	/**
@@ -119,20 +142,22 @@ public class OperateOrderArrays {
 
 
 	public static void main(String[] args) {
-		OperateOrderArrays ooa = new OperateOrderArrays(8);
+		OperateOrderArraysRepetitionBinary ooap = new OperateOrderArraysRepetitionBinary(8);
 		
-		ooa.insertArrs(3);
-		ooa.insertArrs(5);
-		ooa.insertArrs(1);
-		ooa.insertArrs(4);
-		ooa.insertArrs(7);
+		ooap.insertArrs(3);
+		ooap.insertArrs(5);
+		ooap.insertArrs(1);
+		ooap.insertArrs(4);
+		ooap.insertArrs(7);
+		ooap.insertArrs(5);
 		
-		ooa.printArrays();
+		ooap.printArrays();
 		
-		ooa.removeArr(3);
-		ooa.printArrays();
+		ooap.removeArr(5);
+		ooap.printArrays();
 		
-		System.out.println(ooa.queryByData(5));
+		System.out.println("===============================>");
+		System.out.println(ooap.queryByData(3));
 		
 	}
 
