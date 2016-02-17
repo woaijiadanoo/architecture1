@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>    
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="com.framework.architecture.customerMgr.dao.CustomerDAO">  
+    <!-- 
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache"/>
+     -->  
+     
+     <insert id="insertModel" parameterType="CM">
+     insert into tbl_customer(customerId,pwd,showName,trueName,registerTime)
+     		values('${customerId}','${pwd}','${showName}','${trueName}','${registerTime}')
+     </insert>
+     <update id="updateModel" parameterType="CM">
+     update tbl_customer set
+     		customerId = ${customerId},
+     		pwd = ${pwd},
+     		showName = ${showName},
+     		trueName = ${trueName}
+     	where uuid = ${uuid} 
+     </update>
+     
+     <delete id="removeModel"  parameterType="CM">
+     delete from tbl_customer
+     	where uuid = ${uuid} 
+     </delete>
+
+    <select id="getModelByKey" parameterType="String" resultType="CM">  
+        select * from tbl_customer where uuid=#{uuid}
+    </select> 
+    <select id="getListByConditionPage" parameterType="CQM" resultType="CM">
+    select * from tbl_customer
+    	<where>
+        	<if test="customerId!=null">
+        		and customerId=#{customerId}
+        	</if>
+        	<if test="showName!=null">
+        		and showName=#{showName}
+        	</if>
+        	<if test="trueName!=null">
+        		and trueName=#{trueName}
+        	</if>
+        </where>
+    </select>
+</mapper>
