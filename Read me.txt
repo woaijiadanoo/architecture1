@@ -1,0 +1,17 @@
+1、architecture，为练习的第一个工程，目标是搭建一个论坛，由于是练习，工程中的各个模块可能千奇百怪，大家也可以根据需要自由创建模块
+2、整个architecture工程，为一个Maven工程，其引入的资源都是在http://www.mvnrepository.com/中寻找的最新资源，资源更新日期为：2016-2-10号，以后集成的人员，可以在资源库中寻找其他更新的资源。
+3、工程引入方式：
+	Eclipse：Import Maven project，指向工程根目录即可导入所有模块
+
+4、模块划分：
+	4.1 architecture为Maven工程，不包含任何实现
+        4.2 architectureWeb：是web的总模块，不包含任何实现
+        4.3 common：顾名思义，是一个公有后台模块，用来存储工具类，工具类的具体API会在之后发布，并不断更新【2016-02-15 jiang-zh】
+        4.4 customerMgr：客户模块，即作为论坛里客户的模块，同时也是演示模块，可以在里面寻找SpringMVC+Spring4+Mybatis的实现样例，同时会有common模块内API的具体应用，HTML5的使用等等内容【2016-02-15 jiang-zh】
+        4.5 functionDesign：是设计练习模块，主要练习EOF的23种设计模块。【2016-02-15 jiang-zh】
+        4.6 loginMgr：登录模块，用来管理登录+权限等内容，主要应用目前比较流程的Shiro框架【2016-02-15 jiang-zh】
+        4.7 structures：算法练习模块，主要练习各种常见的算法。【2016-02-15 jiang-zh】
+
+环境要求：
+	JDK 1.7以上
+        Egit:在Eclipse里集成的GIT插件，下载地址：http://download.eclipse.org/egit/updates 【2016-02-15 jiang-zh】

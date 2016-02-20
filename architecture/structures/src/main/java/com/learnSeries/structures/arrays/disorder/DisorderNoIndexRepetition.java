@@ -1,12 +1,15 @@
-package com.learnSeries.structures.arrays.noorder;
+package com.learnSeries.structures.arrays.disorder;
 
-public class NoOrderNoIndexNoRepetition {
+import java.util.ArrayList;
+import java.util.List;
+
+public class DisorderNoIndexRepetition {
 
 	private int length = 0;
 	private int currentIndex = 0;
 	private int[] arrs = null;
 	
-	public NoOrderNoIndexNoRepetition(int length){
+	public DisorderNoIndexRepetition(int length){
 		arrs = new int[length];
 		this.length = length;
 	}
@@ -18,7 +21,7 @@ public class NoOrderNoIndexNoRepetition {
 	public void insertArr(int data){
 		
 		//如果索引小于length才可以继续添加
-		if(currentIndex<length-1){
+		if(currentIndex<length){
 			arrs[currentIndex] = data;
 			currentIndex ++;
 		}else{
@@ -32,19 +35,23 @@ public class NoOrderNoIndexNoRepetition {
 	 * @param The data what you want to remove in arrays
 	 */
 	public void removeArr(int data){
-		
 		int dataIndex = getIndexByData(data);
-		
-		if(dataIndex>currentIndex){
-			System.out.println("当前位置没有数据");
-		}else{
-			// 删除任意一条数据，后面的数据都要依次向前挪动一位
-			for(int i=dataIndex;i<currentIndex;i++){
-				arrs[i] = arrs[i+1];
+		while(dataIndex!=-1){
+			if(dataIndex>currentIndex){
+				System.out.println("当前位置没有数据");
+			}else{
+				// 删除任意一条数据，后面的数据都要依次向前挪动一位
+				for(int i=dataIndex;i<currentIndex;i++){
+					if(currentIndex==length && i==currentIndex-1){
+						arrs[length-1] = 0;
+						break;
+					}
+					arrs[i] = arrs[i+1];
+				}
+				currentIndex--;
 			}
-			currentIndex--;
+			dataIndex = getIndexByData(data);
 		}
-		
 	}
 	
 	/**
@@ -52,14 +59,13 @@ public class NoOrderNoIndexNoRepetition {
 	 * @param dataIndex
 	 * @return The data what you want to get;
 	 */
-	public int queryByIndex(int data){
+	public List<Integer> queryByIndex(int data){
+		List<Integer> result = new ArrayList<Integer>();
 		int dataIndex = getIndexByData(data);
-		int result = -1;
-		
-		if(dataIndex>currentIndex-1){
-			System.out.println("当前位置没有数据");
-		}else{
-			result = arrs[dataIndex];
+		while(dataIndex!=-1){
+			
+				result.add(arrs[dataIndex]);
+			
 		}
 		
 		return result;
@@ -70,15 +76,16 @@ public class NoOrderNoIndexNoRepetition {
 	 * @param data
 	 * @return
 	 */
-	public int queryByData(int data){
+	public List<Integer> queryByData(int data){
+		List<Integer> result = new ArrayList<Integer>();
 		
 		for(int i=0;i<currentIndex;i++){
 			if(arrs[i] == data){
-				return arrs[i];
+				result.add(arrs[i]);
 			}
 		}
 		
-		return -1;
+		return result;
 	}
 	
 	/**
@@ -106,16 +113,17 @@ public class NoOrderNoIndexNoRepetition {
 	
 	public static void main(String[] args) {
 
-		NoOrderNoIndexNoRepetition noOrdernr = new NoOrderNoIndexNoRepetition(6);
+		DisorderNoIndexRepetition noOrdernr = new DisorderNoIndexRepetition(6);
 		noOrdernr.insertArr(5);
 		noOrdernr.insertArr(3);
+		noOrdernr.insertArr(6);
 		noOrdernr.insertArr(1);
 		noOrdernr.insertArr(4);
 		noOrdernr.insertArr(6);
 		
 		noOrdernr.printArrays();
 		
-		noOrdernr.removeArr(3);
+		noOrdernr.removeArr(6);
 		noOrdernr.printArrays();
 		
 		System.out.println("===============================>"+noOrdernr.queryByData(3));
