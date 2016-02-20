@@ -63,9 +63,8 @@ public class NoOrderNoIndexRepetition {
 		List<Integer> result = new ArrayList<Integer>();
 		int dataIndex = getIndexByData(data);
 		while(dataIndex!=-1){
-			
 				result.add(arrs[dataIndex]);
-			
+				dataIndex = getIndexByData(data);
 		}
 		
 		return result;
