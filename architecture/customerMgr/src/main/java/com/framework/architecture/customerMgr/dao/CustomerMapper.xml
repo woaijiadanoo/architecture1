@@ -11,16 +11,16 @@
      </insert>
      <update id="updateModel" parameterType="CM">
      update tbl_customer set
-     		customerId = ${customerId},
-     		pwd = ${pwd},
-     		showName = ${showName},
-     		trueName = ${trueName}
-     	where uuid = ${uuid} 
+     		customerId = #{customerId},
+     		pwd = #{pwd},
+     		showName = #{showName},
+     		trueName = #{trueName}
+     	where uuid = #{uuid} 
      </update>
      
      <delete id="removeModel"  parameterType="CM">
      delete from tbl_customer
-     	where uuid = ${uuid} 
+     	where uuid = #{uuid} 
      </delete>
 
     <select id="getModelByKey" parameterType="String" resultType="CM">  

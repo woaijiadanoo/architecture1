@@ -4,6 +4,6 @@
     	if(site > 0){
     		urls = urls.substring(0,site);
     	}
-    	urls = urls+"?page.nowPage="+nowPage;
+    	urls = urls+"?nowPage="+nowPage;
     	window.location.href = urls;
     }

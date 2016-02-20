@@ -21,7 +21,7 @@ public class BaseService<M,QM extends BaseModel> implements IBaseService<M,QM> {
 		dao.updateModel(m);
 	}
 
-	public void removeModel(String key) {
+	public void removeModel(int key) {
 		dao.removeModel(key);
 	}
 

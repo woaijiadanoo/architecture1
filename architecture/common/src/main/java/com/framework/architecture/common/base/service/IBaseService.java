@@ -8,7 +8,7 @@ public interface IBaseService<M,QM> {
 	
 	public void updateModel(M m);
 	
-	public void removeModel(String key);
+	public void removeModel(int i);
 	
 	public M getModelByKey(String key);
 	

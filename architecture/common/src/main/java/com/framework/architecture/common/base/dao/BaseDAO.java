@@ -8,7 +8,7 @@ public interface BaseDAO<M,QM> {
 	
 	public void updateModel(M m);
 	
-	public void removeModel(String key);
+	public void removeModel(int key);
 	
 	public M getModelByKey(String key);
 	

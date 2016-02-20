@@ -6,6 +6,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.alibaba.druid.pool.vendor.SybaseExceptionSorter;
+import com.framework.architecture.common.helpers.FormatHelper;
 import com.framework.architecture.customerMgr.service.ICustomerService;
 import com.framework.architecture.customerMgr.vo.CustomerModel;
 import com.framework.architecture.customerMgr.vo.CustomerQueryModel;
@@ -34,11 +36,11 @@ public class CustomerDAOTest {
 		CustomerModel cm = new CustomerModel();
 		cm.setCustomerId("c3");
 		cm.setPwd("c3");
-		cm.setRegisterTime("c3");
+		cm.setRegisterTime(FormatHelper.long2Str(System.currentTimeMillis()));
 		cm.setShowName("c3");
 		cm.setTrueName("张三");
 		
-		//cdt.customerDao.addCustomer(cm);
+		cdt.getService().insertModel(cm);;
 		
 		
 		CustomerQueryModel cqm = new CustomerQueryModel();
