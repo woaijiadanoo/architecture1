@@ -43,7 +43,7 @@ public class CustomerController {
 		
 		ics.insertModel(cm);
 		
-		return "success";
+		return "redirect:/customer/toList";
 	}
 
 	@RequestMapping(value="/toUpdate/{customerUuid}",method=RequestMethod.GET)
@@ -59,7 +59,7 @@ public class CustomerController {
 	@RequestMapping(value="/update",method=RequestMethod.POST)
 	public String updateCustomer(@ModelAttribute("cm")CustomerModel cm) {
 		ics.updateModel(cm);
-		return "success";
+		return "redirect:/customer/toList";
 	}
 
 	@RequestMapping(value="/toDelete/{customerUuid}",method=RequestMethod.GET)
@@ -77,11 +77,11 @@ public class CustomerController {
 
 		ics.removeModel(cm.getUuid());
 		
-		return "success";
+		return "redirect:/customer/toList";
 	}
 
 	@RequestMapping(value="/toList",method=RequestMethod.GET)
-	public String queryUser(@ModelAttribute("cwm")CustomerWebModel cwm,Model model){
+	public String list2Customer(@ModelAttribute("cwm")CustomerWebModel cwm,Model model){
 		
 		CustomerQueryModel cqm = null;
 		if(cwm.getQueryJsonStr()==null||cwm.getQueryJsonStr().trim().length()==0){
@@ -97,10 +97,17 @@ public class CustomerController {
 		}
 		
 		Page dbPage = ics.getListByConditionPage(cqm);
-		
 		model.addAttribute("cwm",cwm);
 		model.addAttribute("page", dbPage);
 		
+		return "listCustomers";
+	}
+	
+	@RequestMapping(value="/toQuery",method=RequestMethod.GET)
+	public String toQuery(){
+		
+		
 		return "queryCustomers";
 	}
+	
 }

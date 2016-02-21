@@ -6,47 +6,41 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Insert title here</title>
 <link href="${pageContext.request.contextPath}/static/css/application.css" rel="stylesheet">
-<script src="${pageContext.request.contextPath}/static/js/application.js"></script>
 <script src="${pageContext.request.contextPath}/static/js/jquery-1.11.0.js"></script>
+<script type="text/javascript">
+	$().ready(function(){
+		$("#query_submit").click(
+			function(){
+				var queryJson = '{"customerId":"'+$("#customerId").val()+'"'+
+					',"pwd":"'+$("#pwd").val()+'"'+
+					',"showName":"'+$("#showName").val()+'"'+
+					',"trueName":"'+$("#trueName").val()+'"'+
+					'}';
+				window.location.href = "${pageContext.request.contextPath}/customer/toList?queryJsonStr="+queryJson+"";
+			}				
+		)
+	})
+
+</script>
 </head>
 <body>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@taglib prefix="myTag" tagdir="/WEB-INF/tags" %>
-
-
-<table  width="100%" border="1" cellpadding="0" cellspacing="1" class="tableLine DoubleColorTable" >
-	<tr>
-		<td colspan="6" align="center" class="tableLineBg">
-			客户列表
-		</td>
-	</tr>
-	<tr>
-		<td>客户编号</td>
-		<td>客户昵称</td>
-		<td>真实姓名</td>
-		<td>客户密码</td>
-		<td>注册时间</td>
-		<td>操作</td>
-	</tr>
-	<c:forEach var="m" items="${page.result}">	
-	<tr>
-		<td>${m.customerId}</td>
-		<td>${m.showName}</td>
-		<td>${m.trueName}</td>
-		<td>${m.pwd}</td>
-		<td>${m.registerTime}</td>
-		<td>
-			<a href="${pageContext.request.contextPath}/customer/toUpdate/${m.uuid}">修改</a> |
-			<a href="${pageContext.request.contextPath}/customer/toDelete/${m.uuid}">删除</a> 
-		</td>
-	</tr>
-	</c:forEach>
-	<tr>
-		<td colspan="6" align="center">
-			<myTag:page page="${page}"></myTag:page>
-		</td>
-	</tr>
-</table>
-
+	<fieldset>
+		<legend>用户信息查询</legend>
+			<table>
+				<tr>
+					<td>客户ID</td>
+					<td><input type="text" id="customerId" name="customerId" class="input"></td>
+					<td>客户密码</td>
+					<td><input type="text" id="pwd" name="pwd" class="input"></td>
+				</tr>
+				<tr>
+					<td>客户昵称</td>
+					<td><input type="text" id="showName" name="showName" class="input"></td>
+					<td>真实姓名</td>
+					<td><input type="text" id="trueName" name="trueName" class="input"></td>
+				</tr>
+			</table>
+			<input type="button" id="query_submit" value="查询">
+	</fieldset>
 </body>
 </html>

@@ -29,13 +29,13 @@
     <select id="getListByConditionPage" parameterType="CQM" resultType="CM">
     select * from tbl_customer
     	<where>
-        	<if test="customerId!=null">
+        	<if test="customerId!=null  &amp;&amp; customerId!=''">
         		and customerId=#{customerId}
         	</if>
-        	<if test="showName!=null">
+        	<if test="showName!=null &amp;&amp; showName!=''">
         		and showName=#{showName}
         	</if>
-        	<if test="trueName!=null">
+        	<if test="trueName!=null &amp;&amp; trueName!=''">
         		and trueName=#{trueName}
         	</if>
         </where>
