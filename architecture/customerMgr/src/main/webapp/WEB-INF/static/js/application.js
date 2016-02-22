@@ -6,7 +6,6 @@
     	}
     	urls = urls+"?nowPage="+nowPage;
     	var queryJson = document.getElementById("queryJsonStr").value;
-    	alert('queryJson='+queryJson);
     	if(queryJson!=null && queryJson!=''){
     		urls = urls+"&queryJsonStr="+queryJson;
     	}
