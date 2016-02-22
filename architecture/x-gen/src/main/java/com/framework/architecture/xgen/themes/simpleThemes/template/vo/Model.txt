@@ -1,0 +1,12 @@
+package $#modulePackge#.vo;
+
+import com.framework.architecture.common.base.vo.BaseModel;
+
+public class $#moduleNameSuperCase#Model extends BaseModel{
+	$[com.framework.architecture.xgen.themes.simpleThemes.visitors.VoProperty]
+	$[com.framework.architecture.xgen.themes.simpleThemes.visitors.VoPropertyGetterSetter]
+	
+	public String toString(){
+		return $[com.framework.architecture.xgen.themes.simpleThemes.visitors.VoToString];
+	}	
+}

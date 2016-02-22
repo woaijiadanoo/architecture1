@@ -234,5 +234,6 @@
     	<module>structures</module>
     	<!-- 软件设计练习 -功能设计 -->
     	<module>functionDesign</module>
+    <module>x-gen</module>
   </modules>
 </project>

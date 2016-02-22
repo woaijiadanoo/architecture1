@@ -1,0 +1,10 @@
+package $#modulePackge#.vo;
+
+public class $#moduleNameSuperCase#QueryModel extends $#moduleNameSuperCase#Model {
+	$[com.framework.architecture.xgen.themes.simpleThemes.visitors.QueryModelProperty]
+	$[com.framework.architecture.xgen.themes.simpleThemes.visitors.QueryModelPropertyGetterSetter]
+	
+	public String toString(){
+		return $[com.framework.architecture.xgen.themes.simpleThemes.visitors.QueryModelToString];
+	}
+}

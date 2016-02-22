@@ -1,0 +1,1 @@
+需要执行addXGen.bat将x-gen.jar加入本地maven仓库中才能使用此模块
