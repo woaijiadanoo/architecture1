@@ -54,7 +54,7 @@ public class CustomerController {
 		
 		model.addAttribute("cm", cm);
 		
-		return "updateCustomer";
+		return "customerMgr/updateCustomer";
 	}
 
 	@RequestMapping(value="/update",method=RequestMethod.POST)
@@ -70,7 +70,7 @@ public class CustomerController {
 		
 		model.addAttribute("cm", cm);
 		
-		return "deleteCustomer";
+		return "customerMgr/deleteCustomer";
 	}
 	
 	@RequestMapping(value="/delete",method=RequestMethod.POST)
@@ -101,14 +101,14 @@ public class CustomerController {
 		model.addAttribute("cwm",cwm);
 		model.addAttribute("page", dbPage);
 		
-		return "listCustomers";
+		return "customerMgr/listCustomers";
 	}
 	
 	@RequestMapping(value="/toQuery",method=RequestMethod.GET)
 	public String toQuery(){
 		
 		
-		return "queryCustomers";
+		return "customerMgr/queryCustomers";
 	}
 	
 }

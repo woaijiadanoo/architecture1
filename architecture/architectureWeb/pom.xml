@@ -35,6 +35,34 @@
 			<version>0.0.1-SNAPSHOT</version>
 			<type>war</type>
 		</dependency>
+		<!-- 商品管理 -->
+		<dependency>
+			<groupId>com.framework.architecture</groupId>
+			<artifactId>goodsmgr</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>war</type>
+		</dependency>
+		<!-- 购物车管理 -->
+		<dependency>
+			<groupId>com.framework.architecture</groupId>
+  			<artifactId>cartmgr</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>war</type>
+		</dependency>
+		<!-- 订单管理 -->
+		<dependency>
+			<groupId>com.framework.architecture</groupId>
+  			<artifactId>ordermgr</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>war</type>
+		</dependency>
+		<!-- 库存管理 -->
+		<dependency>
+			<groupId>com.framework.architecture</groupId>
+  			<artifactId>storemgr</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>war</type>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>architectureWeb</finalName>
@@ -56,6 +84,22 @@
 						<overlay>
 							<groupId>com.framework.architecture</groupId>
 							<artifactId>functionDesign</artifactId>
+						</overlay>
+						<overlay>
+							<groupId>com.framework.architecture</groupId>
+							<artifactId>goodsmgr</artifactId>
+						</overlay>
+						<overlay>
+							<groupId>com.framework.architecture</groupId>
+							<artifactId>cartmgr</artifactId>
+						</overlay>
+						<overlay>
+							<groupId>com.framework.architecture</groupId>
+							<artifactId>ordermgr</artifactId>
+						</overlay>
+						<overlay>
+							<groupId>com.framework.architecture</groupId>
+							<artifactId>storemgr</artifactId>
 						</overlay>
 					</overlays>
 				</configuration>

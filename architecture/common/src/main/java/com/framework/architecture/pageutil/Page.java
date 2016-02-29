@@ -1,10 +1,11 @@
 package com.framework.architecture.pageutil;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Page<E>{
+public class Page<E> implements Serializable{
 	private int pageShow = 2; 
 	private int totalPage;
 	private int totalCount;

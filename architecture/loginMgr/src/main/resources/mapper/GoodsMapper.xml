@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>    
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.framework.architecture.goodsmgr.dao.GoodsDAO">  
+<!-- 以下两个<cache>标签二选一,第一个可以输出日志,第二个不输出日志 -->  
+    <!-- 
+    <cache type="org.mybatis.caches.ehcache.LoggingEhcache" />
+     -->  
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache" />
+	     
+     
+     <insert id="insertModel" parameterType="GM">
+     	insert into tbl_goods (name,imgPath,description) 
+     	 values(#{name},#{imgPath},#{description})
+     </insert>
+     <update id="updateModel" parameterType="GM">
+     	update tbl_goods set name=#{name},imgPath=#{imgPath},description=#{description}
+     	   	where uuid=#{uuid}
+     </update>
+     <delete id="removeModel" parameterType="int">
+     	delete from tbl_goods where uuid=#{uuid}
+     </delete>
+     
+    <select id="getModelByKey" parameterType="int" resultType="GM">  
+        select * from tbl_goods where uuid=#{uuid}
+    </select>  
+    <select id="getListByConditionPage" parameterType="GQM" resultType="GM">  
+        select * from tbl_goods
+        <where>
+        	<if test="uuid!=null &amp;&amp; uuid > 0">
+        		and uuid=#{uuid}
+        	</if>  
+        	
+        </where>
+    </select> 
+</mapper>

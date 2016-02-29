@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>    
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.framework.architecture.storemgr.dao.StoreDAO">  
+<!-- 以下两个<cache>标签二选一,第一个可以输出日志,第二个不输出日志 -->  
+    <!-- 
+    <cache type="org.mybatis.caches.ehcache.LoggingEhcache" />
+     -->  
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache" />
+	
+     <insert id="insertModel" parameterType="StoreM">
+     	insert into tbl_store (goodsUuid,storeNum) 
+     	 values(#{goodsUuid},#{storeNum})
+     </insert>
+     <update id="updateModel" parameterType="StoreM">
+     	update tbl_store set goodsUuid=#{goodsUuid},storeNum=#{storeNum}
+     	   	where uuid=#{uuid}
+     </update>
+     <delete id="removeModel" parameterType="int">
+     	delete from tbl_store where uuid=#{uuid}
+     </delete>
+     
+    <select id="getModelByKey" parameterType="int" resultType="StoreM">  
+        select * from tbl_store where uuid=#{uuid}
+    </select>  
+    <select id="getListByConditionPage" parameterType="StoreQM" resultType="StoreM">  
+        select * from tbl_store
+        <where>
+        	<if test="uuid!=null &amp;&amp; uuid > 0">
+        		and uuid=#{uuid}
+        	</if>  
+        	
+        </where>
+    </select> 
+</mapper>

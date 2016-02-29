@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>    
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.framework.architecture.cartmgr.dao.CartDAO">
+<!-- 以下两个<cache>标签二选一,第一个可以输出日志,第二个不输出日志 -->  
+    <!-- 
+    <cache type="org.mybatis.caches.ehcache.LoggingEhcache" />
+     -->  
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache" />
+	
+  
+     <insert id="insertModel" parameterType="CartM">
+     	insert into tbl_cart (customerUuid,goodsUuid,buyNum) 
+     	 values(#{customerUuid},#{goodsUuid},#{buyNum})
+     </insert>
+     <update id="updateModel" parameterType="CartM">
+     	update tbl_cart set customerUuid=#{customerUuid},goodsUuid=#{goodsUuid},buyNum=#{buyNum}
+     	   	where uuid=#{uuid}
+     </update>
+     <delete id="removeModel" parameterType="int">
+     	delete from tbl_cart where uuid=#{uuid}
+     </delete>
+     
+    <select id="getModelByKey" parameterType="int" resultType="CartM">  
+        select * from tbl_cart where uuid=#{uuid}
+    </select>  
+    <select id="getListByConditionPage" parameterType="CartQM" resultType="CartM" useCache="false">  
+        select * from tbl_cart
+        <where>
+        	<if test="uuid!=null &amp;&amp; uuid > 0">
+        		and uuid=#{uuid}
+        	</if>  
+        	
+        </where>
+    </select> 
+</mapper>

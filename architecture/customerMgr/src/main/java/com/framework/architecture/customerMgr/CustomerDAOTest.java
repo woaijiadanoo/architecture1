@@ -40,7 +40,7 @@ public class CustomerDAOTest {
 		cm.setShowName("c3");
 		cm.setTrueName("张三");
 		
-		cdt.getService().insertModel(cm);;
+		//cdt.getService().insertModel(cm);;
 		
 		
 		CustomerQueryModel cqm = new CustomerQueryModel();
@@ -48,6 +48,13 @@ public class CustomerDAOTest {
 		cqm.getPage().setPageShow(5);
 		
 		System.out.println(cdt.getService().getListByConditionPage(cqm));
+		
+		
+		CustomerQueryModel cqm2 = new CustomerQueryModel();
+		cqm2.getPage().setNowPage(0);
+		cqm2.getPage().setPageShow(5);
+		
+		System.out.println(cdt.getService().getListByConditionPage(cqm2));
 		
 	}
 

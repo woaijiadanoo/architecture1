@@ -10,5 +10,5 @@ import com.framework.architecture.customerMgr.vo.CustomerQueryModel;
 @Repository
 public interface CustomerDAO extends BaseDAO<CustomerModel,CustomerQueryModel>{
 
-	
+	public CustomerModel getCustomerById(String customerId);
 }

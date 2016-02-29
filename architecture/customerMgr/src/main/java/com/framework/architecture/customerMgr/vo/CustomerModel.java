@@ -4,18 +4,12 @@ import com.framework.architecture.common.base.vo.BaseModel;
 
 public class CustomerModel extends BaseModel{
 
-	private int uuid;
 	private String customerId;
 	private String pwd;
 	private String showName;
 	private String trueName;
 	private String registerTime;
-	public int getUuid() {
-		return uuid;
-	}
-	public void setUuid(int uuid) {
-		this.uuid = uuid;
-	}
+
 	public String getCustomerId() {
 		return customerId;
 	}
@@ -50,7 +44,7 @@ public class CustomerModel extends BaseModel{
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + uuid;
+		result = prime * result + getUuid();
 		return result;
 	}
 	@Override
@@ -62,13 +56,13 @@ public class CustomerModel extends BaseModel{
 		if (getClass() != obj.getClass())
 			return false;
 		CustomerModel other = (CustomerModel) obj;
-		if (uuid != other.uuid)
+		if (getUuid() != other.getUuid())
 			return false;
 		return true;
 	}
 	@Override
 	public String toString() {
-		return "CustomerModel [uuid=" + uuid + ", customerId=" + customerId + ", pwd=" + pwd + ", showName=" + showName
+		return "CustomerModel [uuid=" + getUuid() + ", customerId=" + customerId + ", pwd=" + pwd + ", showName=" + showName
 				+ ", trueName=" + trueName + ", registerTime=" + registerTime + "]";
 	}
 	

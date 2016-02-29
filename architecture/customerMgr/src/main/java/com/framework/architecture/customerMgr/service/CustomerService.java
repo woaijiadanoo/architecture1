@@ -22,4 +22,10 @@ public class CustomerService extends BaseService<CustomerModel,CustomerQueryMode
 		super.setDao(dao);
 	}
 	
+	public CustomerModel getCusomerByID(String CustomerID){
+		
+		
+		return dao.getCustomerById(CustomerID);
+	}
+	
 }

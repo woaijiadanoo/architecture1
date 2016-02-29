@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>    
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.framework.architecture.ordermgr.dao.OrderDAO">  
+<!-- 以下两个<cache>标签二选一,第一个可以输出日志,第二个不输出日志 -->  
+    <!-- 
+    <cache type="org.mybatis.caches.ehcache.LoggingEhcache" />
+     -->  
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache" />
+	
+     <insert id="insertModel" parameterType="OM">
+     	insert into tbl_order (customerUuid,orderTime,totalMoney,saveMoney,state) 
+     	 values(#{customerUuid},#{orderTime},#{totalMoney},#{saveMoney},#{state})
+     </insert>
+     <update id="updateModel" parameterType="OM">
+     	update tbl_order set customerUuid=#{customerUuid},orderTime=#{orderTime},totalMoney=#{totalMoney},saveMoney=#{saveMoney},state=#{state}
+     	   	where uuid=#{uuid}
+     </update>
+     <delete id="removeModel" parameterType="int">
+     	delete from tbl_order where uuid=#{uuid}
+     </delete>
+     
+    <select id="getModelByKey" parameterType="int" resultType="OM">  
+        select * from tbl_order where uuid=#{uuid}
+    </select>  
+    <select id="getListByConditionPage" parameterType="OQM" resultType="OM">  
+        select * from tbl_order
+        <where>
+        	<if test="uuid!=null &amp;&amp; uuid > 0">
+        		and uuid=#{uuid}
+        	</if>  
+        	
+        </where>
+    </select> 
+</mapper>

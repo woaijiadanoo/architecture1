@@ -50,7 +50,7 @@ public class $#moduleNameSuperCase#Controller {
 	}
 	@RequestMapping(value="delete",method=RequestMethod.POST)
 	public String post(@RequestParam("uuid") int uuid){
-		iservice..removeModel(uuid);
+		iservice.removeModel(uuid);
 		return "redirect:$#moduleName#/toList";
 	}
 	@RequestMapping(value="toList",method=RequestMethod.GET)
@@ -61,7 +61,7 @@ public class $#moduleNameSuperCase#Controller {
 		}else{
 			String s = wm.getQueryJsonStr();
 			s = s.replace("-", "%");
-			qm = ($#moduleNameSuperCase#QueryModel)JsonHelper.str2Object(s, $#moduleNameSuperCase#QueryModel.class);
+			qm = ($#moduleNameSuperCase#QueryModel)JsonHelper.str2Obj(s, $#moduleNameSuperCase#QueryModel.class);
 		}
 		
 		qm.getPage().setNowPage(wm.getNowPage());
@@ -69,7 +69,7 @@ public class $#moduleNameSuperCase#Controller {
 			qm.getPage().setPageShow(wm.getPageShow());
 		}
 		
-		Page dbPage = iservice.getByConditionPage(qm);
+		Page dbPage = iservice.getListByConditionPage(qm);
 		
 		//
 		model.addAttribute("wm", wm);

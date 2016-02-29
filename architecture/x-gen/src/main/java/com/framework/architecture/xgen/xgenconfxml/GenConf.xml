@@ -2,43 +2,17 @@
 
 <GenConf>
 	<NeedGens>
-		<!-- <NeedGen id="GoodsConf" provider="XmlModuleGenConf" themeId="smvcsm">
+		<NeedGen id="GoodsConf" provider="XmlModuleGenConf" themeId="simpleThemes">
 			<Params>
 				<Param id="fileName">GoodsGenConf.xml</Param>
 			</Params>	
 		</NeedGen>
-		<NeedGen id="CartConf" provider="XmlModuleGenConf" themeId="smvcsm">
-			<Params>
-				<Param id="fileName">CartGenConf.xml</Param>
-			</Params>	
-		</NeedGen>
-		<NeedGen id="StoreConf" provider="XmlModuleGenConf" themeId="smvcsm">
-			<Params>
-				<Param id="fileName">StoreGenConf.xml</Param>
-			</Params>	
-		</NeedGen>
-		<NeedGen id="OrderConf" provider="XmlModuleGenConf" themeId="smvcsm">
-			<Params>
-				<Param id="fileName">OrderGenConf.xml</Param>
-			</Params>	
-		</NeedGen>
-		<NeedGen id="OrderDetailConf" provider="XmlModuleGenConf" themeId="smvcsm">
-			<Params>
-				<Param id="fileName">OrderDetailGenConf.xml</Param>
-			</Params>	
-		</NeedGen>
-		 -->
-		 <NeedGen id="FileConf" provider="XmlModuleGenConf" themeId="smvcsm">
-			<Params>
-				<Param id="fileName">FileGenConf.xml</Param>
-			</Params>	
-		</NeedGen>
 	</NeedGens>
 	<Themes>
-		<Theme id="smvcsm">cn/javass/themes/smvcsm</Theme>
+		<Theme id="simpleThemes">com/framework/architecture/xgen/themes/simpleThemes</Theme>
 	</Themes>
 	<Constants>
-		<Constant id="prePackage">com.sishuok</Constant>
-		<Constant id="projectName">architecture1</Constant>
+		<Constant id="prePackage">com.framework.architecture</Constant>
+		<Constant id="projectName">architecture</Constant>
 	</Constants>
 </GenConf>
